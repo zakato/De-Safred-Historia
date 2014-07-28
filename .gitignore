@@ -5,7 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
-SFML
+SFML/
 
 # Build results
 
