@@ -54,7 +54,7 @@ namespace zkt {
 		RenderSystem* m_renderSystem;
 		sf::RenderWindow* m_window;
 
-		PlayerManager* m_playerManager;
+		PlayerManager* m_playerManager; 
 	    
 		ActionMap<std::string> m_actionMap;
 		ActionMap<std::string>::CallbackSystem m_callBacks;
