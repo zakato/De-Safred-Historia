@@ -5,10 +5,10 @@
 *.suo
 *.user
 *.sln.docstates
-SFML/
+
 
 # Build results
-
+[Ss]FML/
 [Dd]ebug/
 [Rr]elease/
 x64/
