@@ -41,7 +41,7 @@ namespace zkt {
 		void Start();
 		void Update(const sf::Time& delta);
 
-	private:
+	private:  
 		artemis::World m_world;
 		artemis::SystemManager* m_sm;
 		artemis::EntityManager* m_em;
