@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Artemis">
+      <UniqueIdentifier>{f08be96e-5de4-45c6-85e2-368385b073ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Artemis">
+      <UniqueIdentifier>{6f4c7325-6288-485e-b1f8-c8770e4c18f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render">
+      <UniqueIdentifier>{74abede1-8bdd-44ab-8f5a-1c32884a2c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Animation">
+      <UniqueIdentifier>{563a0ae9-e343-467d-bc11-1ddf5333143b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{eb0ba529-e99c-4dda-a17e-1eaf35b0922f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Movement">
+      <UniqueIdentifier>{4f6b45dc-c504-4ec1-8d4b-2f756bbc40c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Movement">
+      <UniqueIdentifier>{839a764c-49d3-49a7-bd92-0b1aa2c81784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CharacterStatistics">
+      <UniqueIdentifier>{e387d6f2-6a5e-4e43-9448-b20aaa4a29dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{4ac29e73-99bc-4dca-8564-33f91b74fce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{87a70406-89a7-43b2-a038-f15cf1d91479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Player">
+      <UniqueIdentifier>{01fe4d81-998d-4ee4-8870-8d1cd899f7e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{95ad4d0f-39ef-4d73-b55c-4909e2ea7484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Collision">
+      <UniqueIdentifier>{4dadbb86-1247-475c-b6e0-1420c62f2df1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collision">
+      <UniqueIdentifier>{390b0d40-30c9-4a11-b401-4d6fd1af15bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Application.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Game.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\Artemis.h">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\BitSize.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\Component.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\ComponentMapper.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\ComponentType.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\ComponentTypeManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\DelayedEntityProcessingSystem.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\DelayedEntitySystem.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\Entity.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\EntityManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\EntityProcessingSystem.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\EntitySystem.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\GroupManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\ImmutableBag.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\SystemBitManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\SystemManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\TagManager.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\World.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Renderer\cSprite.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Renderer\RenderSystem.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Animation\AnimationMap.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Animation\AnimationSet.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Animation\AnimationSystem.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Animation\AnimationType.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Animation\cAnimation.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Renderer\cRender.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Artemis\TypeInfoComparator.hpp">
+      <Filter>Header Files\Artemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Movement\cVelocity.hpp">
+      <Filter>Header Files\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Movement\MovementSystem.hpp">
+      <Filter>Header Files\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Movement\cTransform.hpp">
+      <Filter>Header Files\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Renderer\SceneNode.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Renderer\SceneGraph.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CharacterStatistics\cHealth.hpp">
+      <Filter>Header Files\CharacterStatistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CharacterStatistics\cMana.hpp">
+      <Filter>Header Files\CharacterStatistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CharacterStatistics\cCharacterStatistics.hpp">
+      <Filter>Header Files\CharacterStatistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\Action.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\ActionOperations.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\Joystick.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\ActionMap.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\ActionContext.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\EventSystem.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\EventListner.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\Connection.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Input\ConnectionImpl.hpp">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Player\PlayerManager.hpp">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Collision\QuadTree.hpp">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Collision\cCollider.hpp">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\RenderSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\Component.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\ComponentType.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\ComponentTypeManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\DelayedEntityProcessingSystem.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\DelayedEntitySystem.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\Entity.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\EntityManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\EntityProcessingSystem.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\EntitySystem.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\GroupManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\SystemBitManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\SystemManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\TagManager.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Artemis\World.cpp">
+      <Filter>Source Files\Artemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Animation\AnimationMap.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Animation\AnimationSet.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Animation\AnimationSystem.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Movement\cTransform.cpp">
+      <Filter>Source Files\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Movement\MovementSystem.cpp">
+      <Filter>Source Files\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Movement\cVelocity.cpp">
+      <Filter>Source Files\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\Input\Action.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\Input\ActionOperation.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player\PlayerManager.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input\Connection.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collision\QuadTree.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Include\Input\ActionMap.inl">
+      <Filter>Header Files\Input</Filter>
+    </None>
+    <None Include="Include\Input\EventListner.inl">
+      <Filter>Header Files\Input</Filter>
+    </None>
+    <None Include="Include\Input\EventSystem.inl">
+      <Filter>Header Files\Input</Filter>
+    </None>
+  </ItemGroup>
+</Project>

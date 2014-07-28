@@ -1,0 +1,17 @@
+//#include <Artemis\BitSize.hpp>
+//#include <Artemis\EntityProcessingSystem.hpp>
+//#include <Artemis\Component.hpp>
+//#include <Artemis\EntitySystem.hpp>
+//#include <Artemis\ComponentMapper.hpp>
+//#include <Artemis\GroupManager.hpp>
+//#include <Artemis\ComponentType.hpp>
+//#include <Artemis\ImmutableBag.hpp>
+//#include <Artemis\ComponentTypeManager.hpp>
+//#include <Artemis\SystemBitManager.hpp>
+//#include <Artemis\DelayedEntityProcessingSystem.hpp>
+//#include <Artemis\SystemManager.hpp>
+//#include <Artemis\DelayedEntitySystem.hpp>
+//#include <Artemis\TagManager.hpp>
+//#include <Artemis\Entity.hpp>
+//#include <Artemis\EntityManager.hpp>
+//#include <Artemis\World.hpp>
