@@ -293,6 +293,9 @@
     <ClCompile Include="Source\Collision\QuadTree.cpp">
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Collision\cCollider.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\Input\ActionMap.inl">

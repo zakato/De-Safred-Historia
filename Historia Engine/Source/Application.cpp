@@ -12,6 +12,11 @@ namespace zkt {
 		m_game = new Game(&m_window);
 	}
 
+	Application::~Application()
+	{
+		delete m_game;
+	}
+
 	void Application::Start()
 	{
 		m_game->Start();

@@ -39,18 +39,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>J:\Media disco\c++\Historia Engine\Historia Engine\Include;$(IncludePath)</IncludePath>
+    <IncludePath>J:\Media disco\c++\Historia Engine\Historia Engine\Include;J:\Media disco\c++\sfml\include\SFML;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>J:\Media disco\c++\Historia Engine\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>J:\Media disco\c++\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>J:\Media disco\c++\Historia Engine\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>J:\Media disco\c++\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -140,6 +140,7 @@
     <ClCompile Include="Source\Artemis\SystemManager.cpp" />
     <ClCompile Include="Source\Artemis\TagManager.cpp" />
     <ClCompile Include="Source\Artemis\World.cpp" />
+    <ClCompile Include="Source\Collision\cCollider.cpp" />
     <ClCompile Include="Source\Collision\QuadTree.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Input\Connection.cpp" />

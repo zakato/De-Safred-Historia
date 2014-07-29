@@ -8,6 +8,7 @@ namespace zkt {
 	
 	public:
 		Application();
+		~Application();
 		void Start();
 		void Run();
 

@@ -17,6 +17,7 @@ namespace zkt {
 		m_sm = m_world.getSystemManager();
 		m_em = m_world.getEntityManager();
 		m_animationSystem = (AnimationSystem*) (m_sm->setSystem(new AnimationSystem()));
+		m_animationMap =  new AnimationMap();
 		m_renderSystem = (RenderSystem*) (m_sm->setSystem(new RenderSystem(window)));
 		m_movementSystem = (MovementSystem*)(m_sm->setSystem(new MovementSystem()));
 		m_playerManager = new PlayerManager();
@@ -24,14 +25,25 @@ namespace zkt {
 
 	}
 
+	Game::~Game()
+	{
+		delete m_sm;
+		delete m_em;
+		delete m_animationSystem;
+		delete m_animationMap;
+		delete m_renderSystem;
+		delete m_movementSystem;
+		delete m_playerManager;
+	}
+
 	void Game::Start()
 	{
 		
 		m_sm->initializeAll();
 		
-		AnimationMap* animationMap = new AnimationMap();
 		
-		m_animationSystem->setAnimationMap(animationMap);
+		
+		m_animationSystem->setAnimationMap(m_animationMap);
 
 		sf::Texture* texture = new sf::Texture();;
 		if (!texture->loadFromFile("Media/Textures/player.png"))
@@ -40,7 +52,7 @@ namespace zkt {
 		}
 
 		sf::Sprite* sprite = new sf::Sprite(*texture);
-
+		
 		
 			AnimationSet* walk = new AnimationSet();
 			walk->setSpriteSheet(sprite);
@@ -63,7 +75,10 @@ namespace zkt {
 
 		cAnimation* comp = (cAnimation*) player.getComponent<cAnimation>();
 		comp->setAnimationType(AnimationType::Walk_Nord);
+		cTransform* transform = (cTransform*)player.getComponent<cTransform>();
 		cVelocity* velocity = (cVelocity*) player.getComponent < cVelocity>();
+
+		transform->setOrigin(20, 20);
 		/*velocity->setVelocity(20, 0);*/
 		
 		m_movementSystem->setInaction(0.4f);
@@ -81,9 +96,26 @@ namespace zkt {
 
 		m_playerManager->setPlayer(&player);
 		
-		m_actionMap["run"] = Action(sf::Keyboard::D, Action::ActionType::Hold);
+		m_actionMap["right"] = Action(sf::Keyboard::D, Action::ActionType::Hold);
+		m_actionMap["left"] = Action(sf::Keyboard::A, Action::ActionType::Hold);
+		m_actionMap["up"] = Action(sf::Keyboard::W, Action::ActionType::Hold);
+		m_actionMap["down"] = Action(sf::Keyboard::S, Action::ActionType::Hold);
+		
+		m_actionMap["down_right"] = Action(sf::Keyboard::S, Action::ActionType::Hold) && Action(sf::Keyboard::D, Action::ActionType::Hold);
+		m_actionMap["down_left"] = Action(sf::Keyboard::S, Action::ActionType::Hold) && Action(sf::Keyboard::A, Action::ActionType::Hold);
+		m_actionMap["up_right"] = Action(sf::Keyboard::W, Action::ActionType::Hold) && Action(sf::Keyboard::D, Action::ActionType::Hold);
+		m_actionMap["up_left"] = Action(sf::Keyboard::W, Action::ActionType::Hold) && Action(sf::Keyboard::A, Action::ActionType::Hold);
 
-		m_callBacks.connect("run", std::bind(&PlayerManager::move, *m_playerManager, 20, 0));
+		m_callBacks.connect("right", std::bind(&PlayerManager::move, *m_playerManager, 20, 0));
+		m_callBacks.connect("left", std::bind(&PlayerManager::move, *m_playerManager, -20, 0));
+		m_callBacks.connect("up", std::bind(&PlayerManager::move, *m_playerManager, 0, -20));
+		m_callBacks.connect("down", std::bind(&PlayerManager::move, *m_playerManager, 0, 20));
+		m_callBacks.connect("down_right", std::bind(&PlayerManager::move, *m_playerManager, 20, 20));
+		m_callBacks.connect("down_left", std::bind(&PlayerManager::move, *m_playerManager, -20, 20));
+		m_callBacks.connect("up_right", std::bind(&PlayerManager::move, *m_playerManager, 20, -20));
+		m_callBacks.connect("up_left", std::bind(&PlayerManager::move, *m_playerManager, -20, -20));
+
+
 	}
 
 	void Game::Update(const sf::Time& delta)

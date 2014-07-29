@@ -24,7 +24,8 @@ namespace zkt {
 	void cTransform::setPosition(float x, float y)
 	{
 		m_previousPosition = m_position;
-		m_position.x = x; m_position.y = y; 
+		m_position.x = x; 
+		m_position.y = y; 
 		m_isTransformNeedUpdate = true;
 		m_isInverseTransformNeedUpdate = true;
 	}

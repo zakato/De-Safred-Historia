@@ -97,7 +97,7 @@ namespace zkt {
 		animationComponent->setCurrentFrame(currentFrame);
 		animationComponent->setCurrentTime(currentTime);
 		animationComponent->getTempSpriteSheet()->setTextureRect(textureRect);
-
+		animationComponent->getTempSpriteSheet()->setOrigin(textureRect.width / 2, textureRect.width / 2);
 
 
 	}

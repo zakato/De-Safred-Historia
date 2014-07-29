@@ -38,6 +38,7 @@ namespace zkt {
 		
 	public:
 		Game( sf::RenderWindow* window);
+		~Game();
 		void Start();
 		void Update(const sf::Time& delta);
 
