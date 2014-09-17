@@ -9,6 +9,7 @@ namespace zkt {
 		: m_animationMap()
 	{
 		addComponentType<cAnimation>();
+		addComponentType<cRender>();
 	}
 
 
@@ -19,7 +20,8 @@ namespace zkt {
 
 
 	void AnimationSystem::initialize(){
-		m_componentMap.init(*world);
+		m_animationComponentMap.init(*world);
+		m_renderComponentMap.init(*world);
 	}
 
 
@@ -32,7 +34,9 @@ namespace zkt {
 	void AnimationSystem::processEntity(artemis::Entity& e){
 
 		AnimationMapIterator iterator;
-		cAnimation* animationComponent = m_componentMap.get(e);
+		cAnimation* animationComponent = m_animationComponentMap.get(e);
+		cRender* renderComponent = m_renderComponentMap.get(e);
+
 		sf::IntRect	textureRect;
 		size_t currentFrame = 0;
 		rsize_t numFrames = 0;
@@ -52,11 +56,11 @@ namespace zkt {
 
 			animationComponent->setAnimationMapIterator(iterator);
 			animationComponent->setTempNumframes(iterator->second.getSize());
-			animationComponent->setTempSpriteSheet(iterator->second.getSpriteSheet());
 			animationComponent->setTempDuration(iterator->second.getDuration());
 			animationComponent->setCurrentFrame(0);
 			animationComponent->setIsAnimationChanged(false);
 
+			renderComponent->setSprite(iterator->second.getSpriteSheet());
 			
 		}
 		else {
@@ -96,8 +100,9 @@ namespace zkt {
 		textureRect = iterator->second.getFrame(currentFrame);
 		animationComponent->setCurrentFrame(currentFrame);
 		animationComponent->setCurrentTime(currentTime);
-		animationComponent->getTempSpriteSheet()->setTextureRect(textureRect);
-		animationComponent->getTempSpriteSheet()->setOrigin(textureRect.width / 2, textureRect.width / 2);
+		
+		renderComponent->getSprite()->setTextureRect(textureRect);
+		renderComponent->getSprite()->setOrigin(textureRect.width / 2, textureRect.width / 2);
 
 
 	}

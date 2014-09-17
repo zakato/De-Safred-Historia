@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Collision">
       <UniqueIdentifier>{390b0d40-30c9-4a11-b401-4d6fd1af15bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Message">
+      <UniqueIdentifier>{36e43b7f-76c0-459b-b3e8-803893bd7a14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Message">
+      <UniqueIdentifier>{43cd1adc-0ce0-4e57-9da6-a5a94407bb01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Application.hpp">
@@ -117,9 +123,6 @@
     <ClInclude Include="Include\Artemis\World.hpp">
       <Filter>Header Files\Artemis</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Renderer\cSprite.hpp">
-      <Filter>Header Files\Render</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Renderer\RenderSystem.hpp">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
@@ -152,12 +155,6 @@
     </ClInclude>
     <ClInclude Include="Include\Movement\cTransform.hpp">
       <Filter>Header Files\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Renderer\SceneNode.hpp">
-      <Filter>Header Files\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Renderer\SceneGraph.hpp">
-      <Filter>Header Files\Render</Filter>
     </ClInclude>
     <ClInclude Include="Include\CharacterStatistics\cHealth.hpp">
       <Filter>Header Files\CharacterStatistics</Filter>
@@ -203,6 +200,24 @@
     </ClInclude>
     <ClInclude Include="Include\Collision\cCollider.hpp">
       <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Collision\BoxCollider.hpp">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Collision\CollisionSystem.hpp">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Collision\QuadTreeSystem.hpp">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Message\MessageSystem.hpp">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Message\Message.hpp">
+      <Filter>Header Files\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Message\MessageType.hpp">
+      <Filter>Header Files\Message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -293,8 +308,17 @@
     <ClCompile Include="Source\Collision\QuadTree.cpp">
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Collision\cCollider.cpp">
+    <ClCompile Include="Source\Collision\CollisionSystem.cpp">
       <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collision\QuadTreeSystem.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Message\Message.cpp">
+      <Filter>Source Files\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Message\MessageSystem.cpp">
+      <Filter>Source Files\Message</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

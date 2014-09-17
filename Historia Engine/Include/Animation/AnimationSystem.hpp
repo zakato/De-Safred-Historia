@@ -10,7 +10,7 @@
 
 #include <SFML\System\Time.hpp>
 #include <Animation\cAnimation.hpp>
-
+#include <Renderer\cRender.hpp>
 
 
 #include <Animation\AnimationMap.hpp>
@@ -39,8 +39,9 @@ private:
 	void	playAnimation(const AnimationType& identifier);
 
 private:
-	artemis::ComponentMapper<cAnimation>	m_componentMap;
-	AnimationMap*				m_animationMap;
+	artemis::ComponentMapper<cAnimation>	m_animationComponentMap;
+	artemis::ComponentMapper<cRender>		m_renderComponentMap;
+	AnimationMap*							m_animationMap;
 
 };
 

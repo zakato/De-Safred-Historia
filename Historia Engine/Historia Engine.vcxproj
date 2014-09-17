@@ -97,8 +97,11 @@
     <ClInclude Include="Include\CharacterStatistics\cCharacterStatistics.hpp" />
     <ClInclude Include="Include\CharacterStatistics\cHealth.hpp" />
     <ClInclude Include="Include\CharacterStatistics\cMana.hpp" />
+    <ClInclude Include="Include\Collision\BoxCollider.hpp" />
     <ClInclude Include="Include\Collision\cCollider.hpp" />
+    <ClInclude Include="Include\Collision\CollisionSystem.hpp" />
     <ClInclude Include="Include\Collision\QuadTree.hpp" />
+    <ClInclude Include="Include\Collision\QuadTreeSystem.hpp" />
     <ClInclude Include="Include\Game.hpp" />
     <ClInclude Include="Include\Input\Action.hpp" />
     <ClInclude Include="Include\Input\ActionContext.hpp" />
@@ -109,15 +112,15 @@
     <ClInclude Include="Include\Input\EventListner.hpp" />
     <ClInclude Include="Include\Input\EventSystem.hpp" />
     <ClInclude Include="Include\Input\Joystick.hpp" />
+    <ClInclude Include="Include\Message\Message.hpp" />
+    <ClInclude Include="Include\Message\MessageSystem.hpp" />
+    <ClInclude Include="Include\Message\MessageType.hpp" />
     <ClInclude Include="Include\Movement\cTransform.hpp" />
     <ClInclude Include="Include\Movement\cVelocity.hpp" />
     <ClInclude Include="Include\Movement\MovementSystem.hpp" />
     <ClInclude Include="Include\Player\PlayerManager.hpp" />
     <ClInclude Include="Include\Renderer\cRender.hpp" />
-    <ClInclude Include="Include\Renderer\cSprite.hpp" />
     <ClInclude Include="Include\Renderer\RenderSystem.hpp" />
-    <ClInclude Include="Include\Renderer\SceneGraph.hpp" />
-    <ClInclude Include="Include\Renderer\SceneNode.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Include\Input\Action.cpp" />
@@ -140,10 +143,13 @@
     <ClCompile Include="Source\Artemis\SystemManager.cpp" />
     <ClCompile Include="Source\Artemis\TagManager.cpp" />
     <ClCompile Include="Source\Artemis\World.cpp" />
-    <ClCompile Include="Source\Collision\cCollider.cpp" />
+    <ClCompile Include="Source\Collision\CollisionSystem.cpp" />
     <ClCompile Include="Source\Collision\QuadTree.cpp" />
+    <ClCompile Include="Source\Collision\QuadTreeSystem.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Input\Connection.cpp" />
+    <ClCompile Include="Source\Message\Message.cpp" />
+    <ClCompile Include="Source\Message\MessageSystem.cpp" />
     <ClCompile Include="Source\Movement\cTransform.cpp" />
     <ClCompile Include="Source\Movement\cVelocity.cpp" />
     <ClCompile Include="Source\Movement\MovementSystem.cpp" />

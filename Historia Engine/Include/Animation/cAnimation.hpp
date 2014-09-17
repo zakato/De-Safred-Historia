@@ -23,11 +23,9 @@ namespace zkt {
 		typedef AnimationSetMap::const_iterator		AnimationMapIterator;
 
 	public:
-									cAnimation() : m_isAnimationChanged(true), m_temp_spriteSheet(nullptr), m_iterator(), m_animationType(AnimationType::None) {   }
+									cAnimation() : m_isAnimationChanged(true), m_iterator(), m_animationType(AnimationType::None) {   }
 		void						setIterator(AnimationMapIterator iterator)					{ m_iterator = iterator; }
-		AnimationMapIterator			getPlayingAnimation() const									{ return m_iterator; }
-		void						setTempSpriteSheet(sf::Sprite* sprite)						{ m_temp_spriteSheet = sprite; }
-		sf::Sprite*					getTempSpriteSheet() const									{ return m_temp_spriteSheet; }
+		AnimationMapIterator		getPlayingAnimation() const									{ return m_iterator; }
 		void						setTempDuration(const sf::Time& duration)					{ m_temp_duration = duration; }
 		const sf::Time&				getTempDuration() const										{ return m_temp_duration; }
 		void						setTempNumframes(const size_t& numFrames)					{  m_temp_numFrames = numFrames; }
@@ -49,7 +47,6 @@ namespace zkt {
 	size_t						m_temp_numFrames;
 	size_t						m_temp_currentframes;
 	AnimationMapIterator		m_iterator;
-	sf::Sprite*					m_temp_spriteSheet;
 	AnimationType				m_animationType;
 	bool						m_isAnimationChanged;
 	};

@@ -4,10 +4,7 @@
 namespace zkt {
 
 	QuadTree::QuadTree(float _x, float _y, float _width, float _height, int _level, int _maxLevel) :
-		m_x(_x),
-		m_y(_y),
-		m_width(_width),
-		m_height(_height),
+		m_shape(_x, _y, _width, _height),
 		m_level(_level),
 		m_maxLevel(_maxLevel)
 	{
@@ -17,10 +14,10 @@ namespace zkt {
 			return;
 		}
 
-		m_NW = new QuadTree(m_x, m_y, m_width / 2.0f, m_height / 2.0f, m_level + 1, m_maxLevel);
-		m_NE = new QuadTree(m_x + m_width / 2.0f, m_y, m_width / 2.0f, m_height / 2.0f, m_level + 1, m_maxLevel);
-		m_SW = new QuadTree(m_x, m_y + m_height / 2.0f, m_width / 2.0f, m_height / 2.0f, m_level + 1, m_maxLevel);
-		m_SE = new QuadTree(m_x + m_width / 2.0f, m_y + m_height / 2.0f, m_width / 2.0f, m_height / 2.0f, m_level + 1, m_maxLevel);
+		m_NW = new QuadTree(m_shape.left, m_shape.top, m_shape.width / 2.0f, m_shape.height / 2.0f, m_level + 1, m_maxLevel);
+		m_NE = new QuadTree(m_shape.left + m_shape.width / 2.0f, m_shape.top, m_shape.width / 2.0f, m_shape.height / 2.0f, m_level + 1, m_maxLevel);
+		m_SW = new QuadTree(m_shape.left, m_shape.top + m_shape.height / 2.0f, m_shape.width / 2.0f, m_shape.height / 2.0f, m_level + 1, m_maxLevel);
+		m_SE = new QuadTree(m_shape.left + m_shape.width / 2.0f, m_shape.top + m_shape.height / 2.0f, m_shape.width / 2.0f, m_shape.height / 2.0f, m_level + 1, m_maxLevel);
 	}
 
 	QuadTree::~QuadTree()
@@ -34,56 +31,57 @@ namespace zkt {
 		delete m_SE;
 	}
 
-	void QuadTree::AddObject(cCollider *object) {
+	void QuadTree::AddObject(artemis::Entity* object) {
+		
 		if (m_level == m_maxLevel) {
 			m_objects.push_back(object);
 			return;
 		}
 		if (contains(m_NW, object)) {
-			m_NW->AddObject(object); return;
+			m_NW->AddObject(object); 
 		}
-		else if (contains(m_NE, object)) {
-			m_NE->AddObject(object); return;
+		if (contains(m_NE, object)) {
+			m_NE->AddObject(object); 
 		}
-		else if (contains(m_SW, object)) {
-			m_SW->AddObject(object); return;
+		if (contains(m_SW, object)) {
+			m_SW->AddObject(object); 
 		}
-		else if (contains(m_SE, object)) {
-			m_SE->AddObject(object); return;
+		if (contains(m_SE, object)) {
+			m_SE->AddObject(object); 
 		}
 		if (contains(this, object)) {
 			m_objects.push_back(object);
 		}
 	}
 
-	std::vector<cCollider*> QuadTree::GetObjectsAt(float _x, float _y) {
+	std::vector<artemis::Entity*> QuadTree::GetObjectsAt(float _x, float _y) {
 		if (m_level == m_maxLevel) {
 			return m_objects;
 		}
 
-		std::vector<cCollider*> returnObjects, childReturnObjects;
+		std::vector<artemis::Entity*> returnObjects, childReturnObjects;
 		if (!m_objects.empty()) {
 			returnObjects = m_objects;
 		}
-		if (_x > m_x + m_width / 2.0f && _x < m_x + m_width) {
-			if (_y > m_y + m_height / 2.0f && _y < m_y + m_height) {
+		if (_x > m_shape.left + m_shape.width / 2.0f && _x < m_shape.left + m_shape.width) {
+			if (_y > m_shape.top + m_shape.height / 2.0f && _y < m_shape.top + m_shape.height) {
 				childReturnObjects = m_SE->GetObjectsAt(_x, _y);
 				returnObjects.insert(returnObjects.end(), childReturnObjects.begin(), childReturnObjects.end());
 				return returnObjects;
 			}
-			else if (_y > m_y && _y <= m_y + m_height / 2.0f) {
+			else if (_y > m_shape.top && _y <= m_shape.top + m_shape.height / 2.0f) {
 				childReturnObjects = m_NE->GetObjectsAt(_x, _y);
 				returnObjects.insert(returnObjects.end(), childReturnObjects.begin(), childReturnObjects.end());
 				return returnObjects;
 			}
 		}
-		else if (_x > m_x && _x <= m_x + m_width / 2.0f) {
-			if (_y > m_y + m_height / 2.0f && _y < m_y + m_height) {
+		else if (_x > m_shape.left && _x <= m_shape.top + m_shape.width / 2.0f) {
+			if (_y > m_shape.top + m_shape.height / 2.0f && _y < m_shape.top + m_shape.height) {
 				childReturnObjects = m_SW->GetObjectsAt(_x, _y);
 				returnObjects.insert(returnObjects.end(), childReturnObjects.begin(), childReturnObjects.end());
 				return returnObjects;
 			}
-			else if (_y > m_y && _y <= m_y + m_height / 2.0f) {
+			else if (_y > m_shape.top && _y <= m_shape.top + m_shape.height / 2.0f) {
 				childReturnObjects = m_NW->GetObjectsAt(_x, _y);
 				returnObjects.insert(returnObjects.end(), childReturnObjects.begin(), childReturnObjects.end());
 				return returnObjects;
@@ -91,6 +89,7 @@ namespace zkt {
 		}
 		return returnObjects;
 	}
+
 
 	void QuadTree::Clear() {
 		if (m_level == m_maxLevel) {
@@ -109,23 +108,94 @@ namespace zkt {
 	}
 
 
+	/*void QuadTree::checkCollision( QuadTree* node) 
+	{
+		if ()
+		for (artemis::Entity* e1 : node->m_objects)
+		{
+			for (artemis::Entity* e2 : node->m_objects)
+			{
+				if (e1->getId() != e2->getId())
+				{
+					cCollider* collider1 = (cCollider*)e1->getComponent<cCollider>();
+					cCollider* collider2 = (cCollider*)e2->getComponent<cCollider>();
 
+					if (collider1->getCollider().getBoxCollider().intersects(collider2->getCollider().getBoxCollider()))
+					{
+						collider1->setCollision(true);
+						collider2->setCollision(true);
+					}
 
-	bool QuadTree::contains(QuadTree *child, cCollider *object) {
-		/*return	 !(object->x < child->m_x ||
-			object->getCTransform-> < child->m_y ||
-			object->x > child->m_x + child->m_width ||
-			object->y > child->m_y + child->m_height ||
-			object->x + object->m_width < child->m_x ||
-			object->y + object->height < child->m_y ||
-			object->x + object->width > child->m_x + child->m_width ||
-			object->y + object->height > child->m_y + child->m_height);*/
-		return true;
+				}
+			}
+		}
+	}*/
+
+	void QuadTree::checkCollisions()
+	{ 
+
+		if (m_level == m_maxLevel) {
+			checkCollision();
+			return;
+		}
+		else
+		{
+			m_NW->checkCollisions();
+			m_NE->checkCollisions();
+			m_SW->checkCollisions();
+			m_SE->checkCollisions();
+		}
+
+		checkCollision();
+			
 	}
 
 
-}
+	void QuadTree::checkCollision()
+	{
 
+		if (m_objects.empty())
+		{
+			return;
+		}
+
+		for (artemis::Entity* e1 : m_objects)
+		{
+			for (artemis::Entity* e2 : m_objects)
+			{
+				if (e1->getId() != e2->getId())
+				{
+					cCollider* collider1 = (cCollider*)e1->getComponent<cCollider>();
+					cCollider* collider2 = (cCollider*)e2->getComponent<cCollider>();
+
+					if (collider1->getCollider().getBoxCollider().intersects(collider2->getCollider().getBoxCollider()))
+					{
+						collider1->setCollision(true);
+						collider2->setCollision(true);
+					}
+
+				}
+			}
+		}
+
+	}
+
+
+
+	bool QuadTree::contains(QuadTree *child, artemis::Entity *object) {
+		cCollider* collider = (cCollider*) object->getComponent<cCollider>();
+		sf::FloatRect boxCollider = collider->getCollider().getBoxCollider();
+		
+		return		!(boxCollider.left < child->m_shape.left
+					|| boxCollider.top < child->m_shape.top 
+					|| boxCollider.left > child->m_shape.left + child->m_shape.width
+					|| boxCollider.top > child->m_shape.top + child->m_shape.height
+					|| boxCollider.left + boxCollider.width < child->m_shape.left
+					|| boxCollider.top + boxCollider.height < child->m_shape.top
+					|| boxCollider.left + boxCollider.width > child->m_shape.left + child->m_shape.width
+					|| boxCollider.top + boxCollider.height > child->m_shape.top + child->m_shape.height);
+	}
+}
 
 
 

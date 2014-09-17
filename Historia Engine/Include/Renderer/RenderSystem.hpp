@@ -1,8 +1,9 @@
+#ifndef RENDERSYSTEM_HPP
+#define RENDERSYSTEM_HPP
+
 #include <Artemis\EntityProcessingSystem.hpp>
 #include <Artemis\ComponentMapper.hpp>
 
-#include <Animation\cAnimation.hpp>
-#include <Renderer\cSprite.hpp>
 #include <Renderer\cRender.hpp>
 #include <Movement\cTransform.hpp>
 
@@ -21,10 +22,12 @@ namespace zkt {
 
 		virtual void								processEntity( artemis::Entity &e);
 
-	
+	protected:
+		void begin();
+		void end();
+
 	private:
-		artemis::ComponentMapper<cSprite>			m_spriteComponentMapper;
-		artemis::ComponentMapper<cAnimation>		m_animationComponentMapper;
+		artemis::ComponentMapper<cRender>			m_renderComponentMapper;
 		artemis::ComponentMapper<cTransform>		m_transformComponentMapper;
 		sf::RenderWindow*							m_window;
 
@@ -33,3 +36,4 @@ namespace zkt {
 };
 
 
+#endif

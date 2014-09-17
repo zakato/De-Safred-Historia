@@ -3,7 +3,7 @@
 
 #include <Artemis\Component.hpp>
 
-
+#include <SFML\Graphics\Sprite.hpp>
 
 namespace zkt
 {
@@ -11,11 +11,12 @@ namespace zkt
 	class cRender : public artemis::Component
 	{
 	public:
-		cRender() : m_isRendering(true) {}
-		bool getIsRendering() const { return m_isRendering; }
-
+		cRender() : m_sprite(nullptr) {}
+		sf::Sprite* getSprite() const { return m_sprite; }
+		void setSprite(sf::Sprite* sprite) { m_sprite = sprite; }
+	
 	private:
-		bool m_isRendering;
+		sf::Sprite* m_sprite;
 	};
 }
 

@@ -5,6 +5,10 @@
 
 #include <SFML\Graphics\Rect.hpp>
 
+#include <Artemis\Entity.hpp>
+
+
+
 #include <vector>
 
 namespace zkt {
@@ -15,19 +19,17 @@ namespace zkt {
 
 		~QuadTree();
 
-		void					AddObject(cCollider *object);
-		std::vector<cCollider*>			GetObjectsAt(float x, float y);
+		void					AddObject(artemis::Entity* object);
+		std::vector<artemis::Entity*>			GetObjectsAt(float x, float y);
 		void					Clear();
-
-		
+		void					checkCollisions();
 
 	private:
-		std::vector<cCollider*>		m_objects;
+		void					checkCollision();
+
+	private:
+		std::vector<artemis::Entity*>		m_objects;
 		sf::FloatRect				m_shape;
-		float						m_x;
-		float						m_y;
-		float						m_width;
-		float						m_height;
 		int							m_level;
 		int							m_maxLevel;
 
@@ -39,7 +41,7 @@ namespace zkt {
 
 		
 
-		bool					contains(QuadTree *child, cCollider *object);
+		bool					contains(QuadTree *child, artemis::Entity *object);
 
 
 

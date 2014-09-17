@@ -1,32 +1,33 @@
-#include <Artemis\EntityProcessingSystem.h>
-#include <Artemis\ComponentMapper.h>
+#ifndef COLLIDERSYSTEM_HPP
+#define COLLIDERSYSTEM_HPP
+
+#include <Artemis\EntityProcessingSystem.hpp>
+#include <Artemis\ComponentMapper.hpp>
 #include <Collision\QuadTree.hpp>
 #include <Collision\cCollider.hpp>
 
 
 namespace zkt {
 
-	class CollisionSystem : public artemis::EntityProcessingSystem {
-	private:
-		artemis::ComponentMapper<cCollision> collisionMapper;
-		artemis::ComponentMapper<cPosition> positionMapper;
+	class CollisionSystem : public artemis::EntityProcessingSystem {		
 
 	public:
-		MovementSystem() {
-			addComponentType<cVelocity>();
-			addComponentType<cPosition>();
-		};
+		CollisionSystem();
 
-		virtual void initialize() {
-			velocityMapper.init(*world);
-			positionMapper.init(*world);
-		};
+		~CollisionSystem();
 
-		virtual void processEntity(artemis::Entity &e) {
-			/*positionMapper.get(e)->posX += velocityMapper.get(e)->velocityX * world->getDelta();
-			positionMapper.get(e)->posY += velocityMapper.get(e)->velocityY * world->getDelta();*/
-		};
+		virtual void initialize();
 
+		virtual void processEntity(artemis::Entity &e);
+	
+	protected:
+		void begin();
+		void end();
+
+	private:
+		artemis::ComponentMapper<cCollider> m_colliderMapper;
 	};
 
 }
+
+#endif

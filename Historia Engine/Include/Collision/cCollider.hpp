@@ -7,7 +7,10 @@
 
 #include <Movement\cTransform.hpp>
 
+#include <Collision\BoxCollider.hpp>
+
 #include <memory>
+#include <functional>
 
 
 
@@ -17,19 +20,20 @@ namespace zkt {
 	class cCollider : public artemis::Component
 	{
 	public:
-		cCollider(cTransform* transform);
-		~cCollider();
-		void setFloatRect(const sf::FloatRect& boxCollider);
-		const sf::FloatRect& getFloatRect() const;
-		void setCTransform(cTransform* transform);
-		cTransform* getCTransform() const;
-		bool isTrigger() const;
-		void setTrigger(bool isTrigger);
+		cCollider() {}
+		~cCollider() {}
+		void setCollider(const BoxCollider& collider) { m_collider = collider; }
+		 BoxCollider& getCollider()  { return m_collider; }
+		bool isTrigger() const { return m_isTrigger; }
+		void setTrigger(bool isTrigger) { m_isTrigger = isTrigger; }
+		void setCollision(bool hasCollided) { m_hasCollided = hasCollided; }
+		bool getHasCollided() const { return m_hasCollided; }
 
 	private:
-		sf::FloatRect  m_boxCollider;
-		cTransform*	   m_transform;
-		bool		   m_isTrigger;
+		BoxCollider  m_collider;
+		
+		bool		 m_isTrigger;
+		bool		 m_hasCollided;
 	};
 }
 

@@ -11,7 +11,7 @@ namespace zkt {
 	RenderSystem::RenderSystem( sf::RenderWindow* window)
 	{
 		m_window = window;
-		addComponentType<cAnimation>();
+		addComponentType<cRender>();
 		addComponentType<cTransform>();
 		
 	}
@@ -21,8 +21,18 @@ namespace zkt {
 	void RenderSystem::initialize()
 	{
 		
-		m_animationComponentMapper.init(*world);
+		m_renderComponentMapper.init(*world);
 		m_transformComponentMapper.init(*world);
+	}
+
+	void RenderSystem::begin()
+	{
+		m_window->clear();
+	}
+
+	void RenderSystem::end()
+	{
+		m_window->display();
 	}
 
 	
@@ -33,16 +43,16 @@ namespace zkt {
 		
 
 			/*f::Sprite*  sprite = m_spriteComponentMapper.get(e)->getSprite();*/
-			sf::Sprite*	sprite = m_animationComponentMapper.get(e)->getTempSpriteSheet();
+		sf::Sprite*	sprite = m_renderComponentMapper.get(e)->getSprite();
 
 
 			sf::RenderStates states;
 			states.transform = m_transformComponentMapper.get(e)->getTransform();
 
 
-			m_window->clear();
+			
 			m_window->draw(*sprite, states);
-			m_window->display();
+			
 		
 	}
 }

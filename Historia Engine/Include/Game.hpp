@@ -13,8 +13,11 @@
 #include <Movement\cTransform.hpp>
 #include <Movement\cVelocity.hpp>
 
-#include <Renderer\cRender.hpp>
+
 #include <Renderer\RenderSystem.hpp>
+
+#include <Collision\cCollider.hpp>
+#include <Collision\CollisionSystem.hpp>
 
 #include <Input\Action.hpp>
 #include <Input\ActionMap.hpp>

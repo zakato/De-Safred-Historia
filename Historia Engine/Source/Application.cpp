@@ -45,6 +45,7 @@ namespace zkt {
 			timeSinceLastUpdate += elapsedTime;
 			while (timeSinceLastUpdate > TimePerFrame)
 			{
+
 				timeSinceLastUpdate -= TimePerFrame;
 				m_game->Update(TimePerFrame);
 			}
